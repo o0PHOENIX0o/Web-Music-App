@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Music Player</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../style.css"> -->
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
+    <script src="https://kit.fontawesome.com/2343674bd3.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="../static/guitar.png">
+    <!-- <meta name - "viewport" content="width=device-width,initial-scale = 1">
+    <meta http-equiv="refresh" content="30;url=http://127.0.0.1:5000/" /> -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="music-player">
+
+            <div class="inputField">
+                <input type="text" name="data" id="input_field" placeholder="enter the song name" />
+                <div onclick="sendData()"><i class="fa-solid fa-magnifying-glass" id="searchButton"></i></div>
+                <div onclick="download()"><i style="cursor: pointer;" class="fa-solid fa-download" id="downloadButton"></i></div>
+            </div>
+
+            <div id="response"></div>
+
+            <nav>
+                <div class="circle">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
+
+                <div onclick="toggleDropdown()" id="Dropdown_" class="circle">
+                    <i style="cursor: pointer;" class="fa-solid fa-bars"></i>
+
+                    <div class="dropdown-content" id="myDropdown">
+                    </div>
+                </div>
+
+            </nav>
+
+            <div class="thumbnail" id="thumbnail">
+                <!-- <img src="../img/download.jpg" alt="img"> -->
+                <img src="../static/img/sparkle your name amv.jpg" alt="select a song">
+            </div>
+
+            <div id="song_name">
+                <h1 id="song_title">sparkle your name amv</h1>
+            </div>
+
+            <audio id="song">
+                <!-- <source src="../audios/sparkle.mp3"> -->
+                <source src="../static/audios/sparkle your name amv.mp4" type="audio/mp4">
+            </audio>
+
+
+            <input type="range" value="0" id="progress">
+
+
+
+            <span class="progressTime" id="progressTime">0:00</span>
+            <span class="totalTime" id="totalTime">0:00</span>
+
+            <div class="controls">
+                <div onclick="backward()"><i class="fa-solid fa-backward" id="Backward"></i></div>
+                <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
+                <div onclick="forward()"><i class="fa-solid fa-forward" id="Forward"></i></div>
+                <div onclick="volume()"><i class="fa-solid fa-volume-high"></i></div>
+            </div>
+
+            <div class="slider" id="volumeSlider" style="display: none;">
+                <input type="range" min="0" max="60" value="60" class="slider-input" id="volumeRange">
+            </div>
+
+        </div>
+    </div>
+    <script src="../static/script.js"></script>
+</body>
+
+</html>

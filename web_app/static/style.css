@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: 'poppins', sans-serif; */
+    box-sizing: border-box;
+    color: #fff;
+}
+
+
+.container {
+    width: 100%;
+    height: 140vh;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.music-player {
+    background: #222;
+    width: 400px;
+    padding: 25px 35px;
+    text-align: center;
+    box-shadow: 0 1px 6px rgb(41, 50, 122);
+
+}
+
+/* .inputField {
+    background: #030303;
+}
+
+.inputField div:nth-child(2) {
+    color: #fff;
+} */
+
+.inputField {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    /* Set the background color to match your design */
+    padding: 10px;
+}
+
+#input_field {
+    flex: 1;
+    background-color: #333;
+    /* Inherit the background color from the parent */
+    border: none;
+    color: white;
+    padding: 5px;
+}
+
+.inputField .fa-download {
+    margin-left: 10px; /* Adjust the margin value as needed for spacing */
+  }
+
+#searchButton {
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+    /* Add some spacing between the input field and the search button */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+}
+
+
+nav .circle {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: #302c2c;
+    box-shadow: 0 1px 6px rgb(41, 50, 122);
+}
+
+
+.thumbnail {
+    width: 320px;
+    height: 220px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 1px 20px rgb(41, 50, 122);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.thumbnail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 10%;
+}
+
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+.music-player h1 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    margin-top: 20px;
+}
+
+
+.music-player p {
+    font-size: 14px;
+    color: #fff;
+}
+
+
+#progress {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 40px 0;
+}
+
+
+#progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #2c7f92;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 8px solid #fff;
+    box-shadow: 0 2px 20px rgb(41, 50, 122);
+}
+
+
+#volumeSlider {
+    position: relative;
+    bottom: 60px;
+    left: 177px;
+    margin-top: 10px;
+
+}
+
+
+.slider-input {
+    border: none;
+    width: 100px;
+}
+
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 330px;
+
+    height: 80px;
+
+}
+
+
+.controls div {
+    width: 50px;
+    height: 50px;
+    margin: 0 15px;
+
+    background: #302e2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 1px 6px rgb(41, 50, 122);
+    cursor: pointer;
+}
+
+
+.controls div:nth-child(2) {
+    transform: scale(1.5);
+    background: #2e2c2d;
+    color: #fff;
+}
+
+.controls div:nth-child(4) {
+    transform: scale(0.7);
+    background: #2e2c2d;
+    color: #fff;
+}
+
+
+.slider {
+    transform: rotate(270deg);
+}
+
+.progressTime {
+    position: relative;
+    bottom: 25px;
+    right: 130px;
+    margin-top: 10px;
+}
+
+.totalTime {
+    position: relative;
+    bottom: 25px;
+    left: 127px;
+    margin-top: 10px;
+}
+
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    cursor: pointer;
+    margin-top: -163px;
+    margin-left: 105px;
+    display: none;
+    position: absolute;
+    background-color: rgb(46, 46, 46);
+    min-width: 160px;
+    z-index: 1;
+    box-shadow: 0 2px 20px rgb(41, 50, 122);
+}
+
+.dropdown-content a {
+    border-bottom: 1px solid #ffffff;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
