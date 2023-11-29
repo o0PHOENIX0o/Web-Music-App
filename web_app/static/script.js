@@ -5,9 +5,8 @@ const song = document.getElementById("song");
 const ctrlIcon = document.getElementById("ctrlIcon");
 const backwardButton = document.getElementById('backward');
 const forwardButton = document.getElementById('forward');
-
 const volumeRanger = document.getElementById("volumeRange");
-var resp = document.getElementById("response");
+const resp = document.getElementById("response");
 
 song.onloadedmetadata = function () {
     progress.max = song.duration;
@@ -71,56 +70,36 @@ function sendData() {
 function download() {
     var song = document.getElementById("song_title").textContent;
     var downloadLink = document.createElement('a');
-    downloadLink.href = `static/audios/${song}.mp4`; // Replace with the actual file path or URL
-    downloadLink.download = song; // Specify the name for the downloaded file
-
-    // Simulate a click on the anchor element to trigger the download
+    downloadLink.href = `static/audios/${song}.mp4`; L
+    downloadLink.download = song;
     downloadLink.click();
 }
 
 function GetSongList() {
-
-    // Get the value from the input field
-    var data = document.getElementById("input_field").value;
-    resp.textContent = "";
-
-    // Create a JSON object
-    var jsonData = { "data": data };
-
     // Send the JSON data to the server
-    fetch("/songlist", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify(jsonData)
-    })
+    fetch("/songlist", { method: "GET" })
         .then(response => response.json())
         .then(data => {
             var container = document.getElementById('myDropdown');
-            // Create an array to store existing text content
 
             for (const key in data) {
-                var files = JSON.stringify(data[key]).replace(/"/g, ''); // Replace all double quotes
+                var files = JSON.stringify(data[key]).replace(/"/g, '');
 
-                // Check if the text content already exists in the array
                 if (!existingTextContent.includes(files)) {
                     var newElement = document.createElement('a');
                     newElement.textContent = files;
                     container.appendChild(newElement);
-                    existingTextContent.push(files); // Add the text content to the array
+                    existingTextContent.push(files);
                 }
             }
-            // console.log(existingTextContent);
-            // updateAudioAndImage(existingTextContent[0]);
+
             var options = document.querySelectorAll('.dropdown-content a');
 
             options.forEach(function (option) {
                 option.addEventListener('click', function () {
                     resp.textContent = "ready to play";
                     updateAudioAndImage(option.textContent);
-                    console.log(option.textContent); // Print the text content of the clicked option
+                    console.log(option.textContent);
                 });
             });
 
@@ -128,20 +107,16 @@ function GetSongList() {
 }
 
 function updateAudioAndImage(data) {
-    // response = "ready to play";
 
     ctrlIcon.classList.remove("fa-pause");
     ctrlIcon.classList.add("fa-play");
-    // Get the audio and image elements
+
     var audioElement = document.getElementById("song");
     var imageElement = document.getElementById("thumbnail").getElementsByTagName("img")[0];
 
-    // Update the audio source
+
     audioElement.src = `static/audios/${data}.mp4`;
     audioElement.load();
-
-
-    // Update the image source
 
     imageElement.src = `static/img/${data}.jpg`;
 
@@ -171,12 +146,10 @@ setInterval(() => {
 }, 500);
 
 progress.oninput = function () {
-    // progress.addEventListener('change', function () {
     song.currentTime = progress.value;
     ctrlIcon.classList.add("fa-pause");
     ctrlIcon.classList.remove("fa-play");
     song.play();
-    // })
 };
 
 
@@ -194,10 +167,8 @@ volumeRanger.addEventListener("input", function () {
     const sliderValue = volumeRanger.value;
     console.log("Slider Value: " + sliderValue);
 
-    // You can use the slider value for your desired functionality
-    // For example, update the volume of an audio element/ Replace with your audio element ID
     if (song) {
-        song.volume = sliderValue / 100; // Adjust the volume based on the slider value
+        song.volume = sliderValue / 100;
     }
 });
 
