@@ -76,25 +76,6 @@ def GetSong(name, path):
             print("error", e)
             return None
 
-    # def convert(name, path):
-    #     input_mp4 = f"{path}audios/{name}.mp4"
-    #     output_mp4 = f"{path}audios/{name}.mp4"
-    #     ffmpeg_extract_audio(input_mp4, output_mp4)
-    #     os.unlink(input_mp4)
-    # def convert(name, path):
-    #     print("convert")
-    #     input_mp4 = f"{path}audios/{name}.mp4"
-    #     output_mp4 = f"{path}audios/{name}.mp4"
-    #     print(input_mp4)
-    #     # Use ffmpeg to extract audio from the video
-    #     cmd = ['ffmpeg', '-i', input_mp4, '-q:a', '0', '-map', 'a', output_mp4]
-
-    #     try:
-    #         subprocess.run(cmd, check=True)
-    #         print(f"Audio extraction complete: {output_mp4}")
-    #     except subprocess.CalledProcessError as e:
-    #         print(f"Error extracting audio: {e}")
-
     def download_thumbnail(link, img_file):
         yt = YouTube(link)
         thumbnail_url = yt.thumbnail_url
@@ -124,7 +105,6 @@ def GetSong(name, path):
             stream = yt.streams.filter(only_audio=True).first()
             stream.download(
                 output_path=f"{path}/audios/", filename=f"{name}.mp4")
-            # convert(name, path)
 
         print("downloaded")
         return name
@@ -161,7 +141,7 @@ def search():
     return jsonify(new_name)
 
 
-@app.route('/songlist', methods=['POST'])
+@app.route('/songlist', methods=['GET'])
 def songlist():
 
     songfiles = SongList(static_path)
@@ -170,4 +150,4 @@ def songlist():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host="192.168.0.103", port=8000)
+    app.run(debug=True)
