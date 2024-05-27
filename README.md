@@ -11,8 +11,7 @@ Welcome to the Music Web App repository! This Flask web application allows users
   - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+
 
 ## Features
 
