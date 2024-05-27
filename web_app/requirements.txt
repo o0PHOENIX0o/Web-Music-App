@@ -1,0 +1,4 @@
+Flask
+moviepy
+pytube
+google-api-python-client
